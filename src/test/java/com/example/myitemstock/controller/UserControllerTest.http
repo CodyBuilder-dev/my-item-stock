@@ -1,0 +1,25 @@
+### getUsers
+GET http://localhost:8083/api/v1/users
+
+
+### getUserItems
+GET http://localhost:8083/api/v1/user/items
+Content-Type: application/json
+
+{
+  "id": 1,
+  "email": "acddd@naver.com",
+  "nickname": "abcd",
+  "passwd": "1111"
+}
+
+### addUser
+POST http://localhost:8083/api/v1/user
+Content-Type: application/json
+
+{
+  "id": 1,
+  "email": "acddd@naver.com",
+  "nickname": "abcd",
+  "passwd": "1111"
+}
