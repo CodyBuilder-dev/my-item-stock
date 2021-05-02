@@ -37,3 +37,12 @@ jobs:
       
     - name: Build with Gradle
       run: ./gradlew build
+
+    - name: Set AWS confidentials
+      with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+    - name: Test Context Variable
+      run: echo ${{ github.repository }} ${{ github.sha }}
