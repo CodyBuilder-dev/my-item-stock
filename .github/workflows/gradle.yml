@@ -46,10 +46,10 @@ jobs:
           aws-region: ap-northeast-2
 
     - name: Deploy on EC2 with CodeDeploy
-      run:
-        aws deploy create-deployment \
-        --application-name my-item-stock \
-        --deployment-config-name CodeDeployDefault.OneAtATime \
-        --deployment-group-name my-item-stock-dg \
-        --description "My-Item-Stock PRD Deployment" \
+      run: >
+        aws deploy create-deployment
+        --application-name my-item-stock
+        --deployment-config-name CodeDeployDefault.OneAtATime
+        --deployment-group-name my-item-stock-dg
+        --description "My-Item-Stock PRD Deployment"
         --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
