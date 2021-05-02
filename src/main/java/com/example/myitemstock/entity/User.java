@@ -2,6 +2,7 @@ package com.example.myitemstock.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,9 @@ public class User {
     private String nickname;
     private String passwd;
 
+    // 1대다 단방향 관계
     @OneToMany
+    @JoinColumn(name = "USER_ID")
     private Set<Item> items;
 
     public Long getId() {
