@@ -45,5 +45,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-    - name: Test Context Variable
-      run: echo ${{ github.repository }} ${{ github.sha }}
+    - name: Deploy on EC2 with CodeDeploy
+      run:
+        aws deploy create-deployment \
+        --application-name my-item-stock \
+        --deployment-config-name CodeDeployDefault.OneAtATime \
+        --deployment-group-name my-item-stock-dg \
+        --description "My-Item-Stock PRD Deployment" \
+        --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
