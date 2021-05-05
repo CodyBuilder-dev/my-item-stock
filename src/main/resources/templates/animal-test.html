@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Test</title>
+</head>
+<body>
+    <tr th:each="animal : ${animalList}">
+        <td th:text="${animal.animal_id}">Id ...</td>
+        <td><a href="#" th:text="${animal.name}">Name ...</a></td>
+        <td th:text="${animal.animal_type}">Type ...</td>
+    </tr>
+</body>
+</html>

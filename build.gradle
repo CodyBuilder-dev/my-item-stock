@@ -18,11 +18,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
+	// Swagger
 	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 
+	// 암호화 및 보안
 	implementation group: 'org.jasypt', name: 'jasypt', version: '1.9.3'
+
+	// DB
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.2'
+	implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
 	implementation 'org.flywaydb:flyway-core'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
