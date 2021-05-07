@@ -4,12 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML 기본 문서</title>
+    <link rel="stylesheet" href="css/index2.css">
+<!--    <link rel="script" href="script/index2.js">-->
+    <script>
+        function h2click() {
+            alert("클릭하셨군요");
+            console.log("클릭로그");
+        }
+    </script>
 </head>
 <body>
     <h1>프런트엔드 웹 개발</h1>
     <hr>
-    <h2>HTML</h2>
+    <h2 onclick="h2click()">HTML</h2>
     <p>HTML은 Hypertext Markup Language의 약자입니다</p>
+    <h3>p와 br</h3>
     <p>지금 이 텍스트는 IDE에서는 줄바꿈을 했지만
         실제 브라우저에서는 줄바꿈 없이 보입니다</p>
     <p>만약텍스트가정말너무길어서
@@ -23,6 +32,7 @@
         <br>브라우저에서도 줄바꿈을 하려면 어떻게 해야 할까요?
         <br/>바로 &ltbr&gt을 사용하면됩니다
         </br>어때요, 정말 쉽죠~?</p>
+    <h3>strong과 b</h3>
     <p>
         <strong>strong</strong>태그는 사실 그 자체만으로는
         글자를 진하게 하라는 의미는 없습니다.
