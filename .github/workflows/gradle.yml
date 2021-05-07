@@ -50,7 +50,7 @@ jobs:
         aws s3 cp
         --region ap-northeast-2
         *.jar s3://$PROJECT_NAME
-      working-directory: $PROJECT_NAME/build/libs
+      working-directory: build/libs
 
 #    - name : Deploy from S3 with CodeDeploy
 #      run : >
