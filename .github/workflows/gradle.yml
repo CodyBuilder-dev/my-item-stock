@@ -35,9 +35,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    # 프로젝트 전체를 묶어야 한다
     - name: Make zip file
-      run: zip -r $PROJECT_NAME-$PROJECT_VERSION.zip .
+      run: zip -r $PROJECT_NAME-$PROJECT_VERSION.zip . # 프로젝트 전체를 묶어야 한다
 
 
     - name: Set AWS confidentials
