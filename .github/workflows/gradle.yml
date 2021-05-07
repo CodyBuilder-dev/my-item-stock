@@ -52,7 +52,6 @@ jobs:
         aws s3 cp
         --region ap-northeast-2
         $PROJECT_NAME-$PROJECT_VERSION.zip s3://$PROJECT_NAME
-      working-directory: build/libs
 
     - name : Deploy from S3 with CodeDeploy
       run : >
