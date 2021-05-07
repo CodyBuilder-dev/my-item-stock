@@ -12,19 +12,19 @@ import static com.example.myitemstock.entity.QAnimalIns.animalIns;
 @Repository
 public class AnimalInsRepositorySupport extends QuerydslRepositorySupport {
 
-    private final JPAQueryFactory query;
+    private final JPAQueryFactory queryFactory;
 
-    public AnimalInsRepositorySupport(JPAQueryFactory query){
+
+    public AnimalInsRepositorySupport(JPAQueryFactory queryFactory){
         super(AnimalIns.class);
-        this.query = query;
+        this.queryFactory = queryFactory;
     }
 
-    public List<AnimalIns> findAnimalIns(){
-        return query.selectFrom(animalIns);
-    }
 
-    public List<AnimalIns> findAnimalInsByName(String name){
-        return query.selectFrom(animalIns)
-                .where(animalIns.name.eq(name));
+    public List<AnimalIns> findByName(String name){
+        return queryFactory
+                .selectFrom(animalIns)
+                .where(animalIns.name.eq(name))
+                .fetch();
     }
 }
