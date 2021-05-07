@@ -17,6 +17,7 @@ jobs:
       SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME}}
       SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD}}
       PROJECT_NAME: my-item-stock
+      PROJECT_VERSION: 0.0.1-SNAPSHOT
 
     steps:
     - name: Source Checkout
@@ -49,16 +50,17 @@ jobs:
       run: >
         aws s3 cp
         --region ap-northeast-2
-        *.jar s3://$PROJECT_NAME
+        $PROJECT_NAME-$PROJECT_VERSION.jar s3://$PROJECT_NAME
       working-directory: build/libs
 
-#    - name : Deploy from S3 with CodeDeploy
-#      run : >
-#        aws deploy create-deployment
-#        --application-name sigrid-dev
-#        --deployment-config-name CodeDeployDefault.OneAtATime
-#        --deployment-group-name sigrid-dev
-#        --s3-location bucket=sigrid-deploy,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
+    - name : Deploy from S3 with CodeDeploy
+      run : >
+        aws deploy create-deployment
+        --application-name my-item-stock
+        --deployment-config-name CodeDeployDefault.AllAtOnce
+        --deployment-group-name my-item-stock-dg
+        --s3-location s3://$PROJECT_NAME/$PROJECT_NAME-$PROJECT_VERSION.jar
+
 #    - name: Deploy from Github Directly with CodeDeploy
 #      run: >
 #        aws deploy create-deployment
