@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--<mapper namespace="com.example.myitemstock.mapper.AnimalMapper">-->
+<!--<mapper namespace="AnimalMapper">-->
 <mapper namespace="com.example.myitemstock.mapper.AnimalMapper">
     <select id="selectAllAnimals" parameterType="hashMap" resultType="hashMap">
         SELECT *
-        FROM ANIMAL_INS
+        FROM animal_ins
         LIMIT 100
     </select>
 
