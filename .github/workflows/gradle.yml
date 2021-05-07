@@ -59,7 +59,7 @@ jobs:
         --application-name my-item-stock
         --deployment-config-name CodeDeployDefault.AllAtOnce
         --deployment-group-name my-item-stock-dg
-        --s3-location s3://$PROJECT_NAME/$PROJECT_NAME-$PROJECT_VERSION.jar
+        --s3-location bucket=$PROJECT_NAME,key=$PROJECT_NAME-$PROJECT_VERSION.jar
 
 #    - name: Deploy from Github Directly with CodeDeploy
 #      run: >
