@@ -35,9 +35,9 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-#    - name: Make zip file
-#      run: zip -r .
-#      working-directory: ./BE/build/libs
+    - name: Make zip file
+      run: zip -r $PROJECT_NAME-$PROJECT_VERSION.zip $PROJECT_NAME-$PROJECT_VERSION.jar
+      working-directory: build/libs
 
     - name: Set AWS confidentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -50,7 +50,7 @@ jobs:
       run: >
         aws s3 cp
         --region ap-northeast-2
-        $PROJECT_NAME-$PROJECT_VERSION.jar s3://$PROJECT_NAME
+        $PROJECT_NAME-$PROJECT_VERSION.zip s3://$PROJECT_NAME
       working-directory: build/libs
 
     - name : Deploy from S3 with CodeDeploy
@@ -59,7 +59,7 @@ jobs:
         --application-name my-item-stock
         --deployment-config-name CodeDeployDefault.AllAtOnce
         --deployment-group-name my-item-stock-dg
-        --s3-location bucket=$PROJECT_NAME,key=$PROJECT_NAME-$PROJECT_VERSION.jar
+        --s3-location bucket=$PROJECT_NAME,bundleType=zip,key=$PROJECT_NAME-$PROJECT_VERSION.zip
 
 #    - name: Deploy from Github Directly with CodeDeploy
 #      run: >
