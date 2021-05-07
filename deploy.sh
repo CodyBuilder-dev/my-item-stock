@@ -3,7 +3,7 @@
 REPOSITORY=/home/ec2-user/my-item-stock
 cd $REPOSITORY
 
-./gradlew build
+#./gradlew build
 
 APP_NAME=my-item-stock
 JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep '.jar' | tail -n 1)

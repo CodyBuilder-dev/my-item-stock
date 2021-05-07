@@ -35,9 +35,10 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
+    # 프로젝트 전체를 묶어야 한다
     - name: Make zip file
-      run: zip -r $PROJECT_NAME-$PROJECT_VERSION.zip $PROJECT_NAME-$PROJECT_VERSION.jar
-      working-directory: build/libs
+      run: zip -r $PROJECT_NAME-$PROJECT_VERSION.zip .
+
 
     - name: Set AWS confidentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -46,7 +47,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
-    - name: Upload to S3
+    - name: Upload Zip to S3
       run: >
         aws s3 cp
         --region ap-northeast-2
