@@ -22,3 +22,5 @@ fi
 
 echo "> $JAR_PATH 배포"
 nohup java -jar $JAR_PATH > /dev/null 2> /dev/null < /dev/null &
+
+at -M now + 2 minute <<< $'service codedeploy-agent restart'
