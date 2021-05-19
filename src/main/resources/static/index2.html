@@ -1,11 +1,20 @@
 <!DOCTYPE html>
-
+HTML태그 위에 텍스트를 써도 보입니다
 <html lang="ko">
+HTML-HEAD사이도 보입니다
 <head>
+    HEAD내부도 보입니다
+
     <meta charset="UTF-8">
+    <meta name="keywords" content="html의 구조">
+    <meta name="description" content="html의 구조를 알아봅시다">
+    <meta name="author" content="yooooooo">
+
     <title>HTML 기본 문서</title>
-    <link rel="stylesheet" href="css/index2.css">
+
+    <link rel="stylesheet" href="css/index.css">
 <!--    <link rel="script" href="script/index2.js">-->
+
     <script>
         function h2click() {
             alert("클릭하셨군요");
@@ -18,6 +27,7 @@
     <hr>
     <h2 onclick="h2click()">HTML</h2>
     <p>HTML은 Hypertext Markup Language의 약자입니다</p>
+
     <h3>p와 br</h3>
     <p>지금 이 텍스트는 IDE에서는 줄바꿈을 했지만
         실제 브라우저에서는 줄바꿈 없이 보입니다</p>
@@ -32,6 +42,7 @@
         <br>브라우저에서도 줄바꿈을 하려면 어떻게 해야 할까요?
         <br/>바로 &ltbr&gt을 사용하면됩니다
         </br>어때요, 정말 쉽죠~?</p>
+
     <h3>strong과 b</h3>
     <p>
         <strong>strong</strong>태그는 사실 그 자체만으로는
@@ -60,12 +71,79 @@
         전적으로 CSS <ins>혹은</ins> 각 브라우저의 몫입니다
     </p>
 
-    <h2>CSS</h2>
-    <blockquote>이 세상에서 가장 아름다운 것은 가장 쓸모없는 것들, 예를 들어 백합과 공작과 같은 것이라는 것을 기억하라<br>
-        -<i>존 러스킨</i></blockquote>
-    CSS는 HTML로 작성된 문서에 <strong>부가적인 효과</strong>를 줄 때 사용합니다
+    <h3>기타 태그</h3>
+    <p>
+        <abbr title="별거를 다 줄이네의 줄임말입니다">별다줄</abbr>이란?
+    </p>
+    <p>
+    <code>someFunction = () => {
+            console.log("코드 태그에는 코드를 넣을 수 있습니다");
+        }</code>
+    </p>
+    <p>가격 불과 39,800원!<small>(VAT별도, 36개월 할부 기준)</small></p>
+    <p><s>외않돼?</s></p>
 
-    <h2>JS</h2>
+    <ins>뭘까이건</ins>
+    <del>이건또뭐임</del>
+    <ins><del>같이쓰면?</del></ins>
+
+    <h3>목록</h3>
+        <ol>순서있는 목록
+            <li>일어나기</li>
+            <li>세수하기</li>
+        </ol>
+
+
+        <dl> 설명 목록
+            <dt>이름</dt>
+            <dd>값</dd>
+        </dl>
+        <dl>
+            <dt>이름</dt>
+            <dt>이름2</dt>
+            <dd>값</dd>
+            <dd>값2</dd>
+        </dl>
+
+    <h3>표</h3>
+    <table>
+        <caption>개발자 빙고</caption>
+        <colgroup>
+            <col>
+            <col style="background-color:#eee">
+        </colgroup>
+        <thead>
+        </thead>
+        <tbody>
+            <tr>
+                <td>게임보다 개발이 더 재밌다</td>
+                <td>하루라도 개발을 하지 않으면 손가락에 가시가 돋는다</td>
+                <td>사놓고 안 읽은 개발책이 3권 이상이다</td>
+                <td>개발자 도구를 열어서 웹페이지를 바꿔본 적이 있다</td>
+                <td>전자정부 프레임워크를 보고 화가 치민 적이 있다</td>
+            </tr>
+            <tr>
+                <td>항목 더 만들기 귀찮다...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>이미지</h3>
+    <img src="images/btc.ico" alt="코인">
+
+    <h3>비디오와 오디오</h3>
+    <object data="medias/flight.mp4"></object>
+    <embed src="medias/flower.mp4">
+    <embed src="medias/salad.mp4">
+    <!--width 미지정시 화면에 꽉 차게 나온다 -->
+    <!--controls없으면 제어가 불가능하다    -->
+    <video src="medias/salad.mp4" controls></video>
+    <video src="medias/spring.mp3" controls></video>
+
+    <object data="medias/spring.mp3"></object>
+    <embed src="medias/spring.mp3">
+    <audio src="medias/spring.mp3" controls autoplay></audio>
+    <audio src="medias/salad.mp4" controls autoplay></audio>
 </body>
 </html>
 
