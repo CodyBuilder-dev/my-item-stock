@@ -144,6 +144,36 @@ HTML-HEAD사이도 보입니다
     <embed src="medias/spring.mp3">
     <audio src="medias/spring.mp3" controls autoplay></audio>
     <audio src="medias/salad.mp4" controls autoplay></audio>
+
+    <h3>입력폼 받기</h3>
+    <form>
+        <fieldset>
+            <legend>상품 선택</legend>
+        </fieldset>
+        <fieldset>
+            <legend>배송 정보</legend>
+        </fieldset>
+    </form>
+
+    <form>
+        <label>아이디(6자 이상)<input></label>
+        <label for="pwd">패스워드</label>
+        <input id="pwd">
+    </form>
+    <input type="reset"/>
+
+    <form>
+        <fieldset>
+            <input type="radio" name="choice" value="yes">Yes</input>
+            <input type="radio" name="choice" value="no">No</input>
+            <input type="number" max="5">개 (최대 5개)</input>
+            <input type="range" step="0.01">개 (최대 무제한)</input>
+
+            <input readonly value="바꿔봐라 메롱~"/>
+        </fieldset>
+
+    </form>
+
 </body>
 </html>
 
