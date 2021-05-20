@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <link rel="stylesheet" href="css/index.css">
+
+<!--    head에 작성된 <script>는 HTML파싱 절차상 예상대로 동작하지 않는다 -->
+<!--    (브라우저상에서 Cannot set property 'onclick' of null 발생) -->
+<!--    <script>-->
+<!--        let click = document.querySelector('#click')-->
+<!--        click.onclick = function() {-->
+<!--            click.style.color = "red";-->
+<!--        }-->
+<!--    </script>-->
+
+<!--    아래와 같이 window.onload에 작성하면, <script>의 위치와 관계없이 정상 동작한다 -->
+<!--    그러나 여전히 마찬가지로 HTML 내에 JavaScript가 직접 들어가 있으면 관리하기 어렵다는 문제가 있다-->
+<!--    <script>-->
+<!--        window.onload = () => {-->
+<!--            let click = document.querySelector('#click')-->
+<!--            click.onclick = () => {-->
+<!--                click.style.color = "red";-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+
+<!--    아래과 같이 별도의 파일로 분리할 수 있고, 재사용성을 높일 수 있다 -->
+<!--    다만, 재사용을 할 경우 여러개의 HTML문서에서 Selector를 어떻게 통일할 것인가 잘 생각해야 한다 -->
+    <script src="script/change-color.js"></script>
     <title>JS 기본 문서</title>
 </head>
 <body>
     <h2>JS</h2>
+    <p id="click">여기를 클릭!</p>
+    <p>위 텍스트를 클릭해 보세요</p>
+
 </body>
 </html>
