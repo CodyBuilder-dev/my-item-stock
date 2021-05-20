@@ -27,12 +27,56 @@
 <!--    아래과 같이 별도의 파일로 분리할 수 있고, 재사용성을 높일 수 있다 -->
 <!--    다만, 재사용을 할 경우 여러개의 HTML문서에서 Selector를 어떻게 통일할 것인가 잘 생각해야 한다 -->
     <script src="script/change-color.js"></script>
+    <script src="script/write-text.js"></script>
     <title>JS 기본 문서</title>
 </head>
 <body>
     <h2>JS</h2>
     <p id="click">여기를 클릭!</p>
     <p>위 텍스트를 클릭해 보세요</p>
+
+    <script>alert("처음으로 alert 창이 실행됩니다.")</script>
+    <link rel="stylesheet" href="css/index4.css">
+
+    <script>
+        let reply = confirm("그 다음으로 confirm창이 실행됩니다.");
+        console.log(reply)
+    </script>
+
+    <script>
+        let name = prompt("이름을 입력하세요", "익명");
+        alert("안녕하세요. " + name);
+    </script>
+
+    <script>
+        writeTextOnDocument("어서오세요. " + "<strong>" + name + "</strong>");
+    </script>
+    <script>
+        document.write("환영합니다");
+    </script>
+
+    <script>
+        console.log(name+", <strong>아쉽게도 html태그는 통하지 않습니다</strong>")
+    </script>
+
+    <script>
+        let notInt = parseInt(prompt("제발 숫자만 입력해주세요"));
+        console.log(notInt);
+    </script>
+
+
+    <h1>구구단</h1>
+    <script>
+        let i,j;
+        for (i = 1; i <= 9; ++i) {
+            document.write("<div>");
+            document.write("<h3>" + i + "단</h3>");
+            for (j = 1; j <= 9; ++j) {
+                document.write(i + "X" + j + " = " + i * j + "<br>");
+            }
+            document.write("</div>");
+        }
+    </script>
 
 </body>
 </html>
