@@ -78,5 +78,49 @@
         }
     </script>
 
+    <div id="container">
+        <h1>DOM을 공부합시다</h1>
+        <a onclick="addP();">더 보기</a>
+        <div id="info"></div>
+    </div>
+    <script>
+        function addP(){
+            var newP = document.createElement("p");
+            var txtNode = document.createTextNode("DOM은 DOM의 줄임말입니다");
+            var attNode = document.createAttribute("style")
+            attNode.value="color:red";
+
+            newP.appendChild(txtNode);
+            // newP.appendChild(attNode);
+            newP.setAttributeNode(attNode);
+
+            document.getElementById("info").appendChild(newP);
+        }
+    </script>
+
+    <form>
+        <label for="subject">추가할 내용</label>
+        <input id="subject">
+<!--        return false; 하는 이유는, button의 type을 명시하지 않으면 submit이 되기 때문-->
+<!--        submit이 되면 자동으로 웹페이지 최상단으로 스크롤이 움직이게 됨-->
+<!--        <button onclick="newRegister(); return false;">추가</button>-->
+<!--        button의 type을 "button"으로 명시해 주면 return false 할 필요가 없음-->
+            <button type="button" onclick="newRegister();">추가</button>
+    </form>
+    <div id="itemList"></div>
+    <script>
+        function newRegister() {
+            var newItem = document.createElement("li");
+            var subject = document.querySelector("#subject");
+            var newText = document.createTextNode(subject.value);
+
+            newItem.appendChild(newText);
+
+            var itemList = document.querySelector("#itemList");
+            itemList.appendChild(newItem);
+
+            subject.value="";
+        }
+    </script>
 </body>
 </html>
