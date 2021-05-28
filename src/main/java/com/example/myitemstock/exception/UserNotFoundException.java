@@ -1,7 +1,10 @@
 package com.example.myitemstock.exception;
 
-public class UserNotFoundException extends RuntimeException {
-    public UserNotFoundException(String msg) {
-        super(msg);
+import com.example.myitemstock.config.ErrorCodeConfig;
+
+public class UserNotFoundException extends RuntimeExceptionWithStatus {
+    public UserNotFoundException() {
+        super(ErrorCodeConfig.USER_NOT_FOUND.getStatus(),
+                ErrorCodeConfig.USER_NOT_FOUND.getMessage());
     }
 }

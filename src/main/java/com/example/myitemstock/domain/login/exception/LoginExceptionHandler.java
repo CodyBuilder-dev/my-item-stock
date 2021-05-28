@@ -10,6 +10,11 @@ public class LoginExceptionHandler {
 
     @ExceptionHandler(InvalidPasswordException.class)
     public ResponseEntity invalidPasswordException(InvalidPasswordException e) {
-        return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
+    }
+
+    @ExceptionHandler(WrongPasswordException.class)
+    public ResponseEntity wrongPasswordException(WrongPasswordException e) {
+        return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
     }
 }

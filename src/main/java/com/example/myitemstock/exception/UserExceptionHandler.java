@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class UserExceptionHandler {
     @ExceptionHandler
     public ResponseEntity userNotFoundException(UserNotFoundException e){
-        return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
     }
 }

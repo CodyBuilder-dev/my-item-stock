@@ -1,6 +1,7 @@
 package com.example.myitemstock.domain.login.service.impl;
 
 import com.example.myitemstock.domain.login.exception.InvalidPasswordException;
+import com.example.myitemstock.domain.login.exception.WrongPasswordException;
 import com.example.myitemstock.domain.login.model.LoginModel;
 import com.example.myitemstock.entity.User;
 import com.example.myitemstock.exception.UserNotFoundException;
@@ -20,11 +21,11 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public boolean checkPassword(LoginModel loginModel) {
         User user = userRepository.findByEmail(loginModel.getEmail())
-                .orElseThrow(() -> new UserNotFoundException("그런 유저가 존재하지 않습니다"));
+                .orElseThrow(() -> new UserNotFoundException());
         if (user.getPassword().getPassword().equals(loginModel.getPassword())) {
             return true;
         } else {
-            throw new InvalidPasswordException("패스워드가 일치하지 않습니다");
+            throw new WrongPasswordException();
         }
     }
 }
