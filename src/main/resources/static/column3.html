@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3열 레이아웃</title>
+    <style>
+        div {
+            border: 1px solid;
+        }
+        #container {
+            border: none;
+            height: 864px;
+        }
+        #header { }
+        #leftbar {
+            display: inline-block;
+            float:left;
+
+            box-sizing: border-box;
+            width:15%;
+            height:80%
+        }
+        #content {
+            display: inline-block;
+            /*float:left;*/
+
+            box-sizing: border-box;
+            width:70%;
+            height:80%;
+        }
+        #rightbar {
+            display: inline-block;
+            float:right;
+
+            box-sizing: border-box;
+            width:15%;
+            height:80%;
+
+        }
+        #footer {
+            clear:both;
+        }
+        #kkakdugi {
+            background-color: #222222;
+            position: fixed;
+            top:10px;
+            width:10px;
+            height:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">헤더입니다</div>
+        <div id="leftbar">왼쪽바데스</div>
+        <div id="content">내용이에용</div>
+        <div id="rightbar">오른쪽바데스</div>
+        <div id="footer">푸터다</div>
+    </div>
+    <div id="kkakdugi"></div>
+</body>
+</html>

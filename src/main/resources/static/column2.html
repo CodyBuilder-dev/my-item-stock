@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2열 레이아웃</title>
+    <style>
+        div {
+            border: 1px solid;
+        }
+        #header { }
+        #sidebar {
+            display: inline-block;
+            float:left;
+
+            box-sizing: border-box;
+            width:30%
+
+        }
+        #content {
+            display: inline-block;
+            float:left;
+
+            box-sizing: border-box;
+            width:70%;
+        }
+        #footer {
+            clear:left
+        }
+    </style>
+</head>
+<body>
+    <div id="header">헤더입니다</div>
+    <div id="sidebar">사이드바데스</div>
+    <div id="content">내용이에용</div>
+    <div id="footer">푸터다</div>
+</body>
+</html>
