@@ -1,12 +1,17 @@
 package com.example.myitemstock.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Password {
+    public Password() {}
+
+    public Password(String password) {
+        this.password = password;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     public void setId(long id) { this.id = id; }
 

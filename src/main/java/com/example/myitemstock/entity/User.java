@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     public Long getId() {
         return id;
@@ -67,9 +68,5 @@ public class User {
     public void removeItem(Item item){
         this.items.remove(item);
     }
-
-
-
-
 
 }
