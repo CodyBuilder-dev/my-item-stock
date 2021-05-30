@@ -3,7 +3,8 @@ package com.example.myitemstock.config;
 public enum ErrorCodeConfig {
     USER_NOT_FOUND(UserNotFound.status,UserNotFound.message),
     WRONG_PASSWORD(WrongPassword.status,WrongPassword.message),
-    INVALID_PASSWORD(400,"패스워드 형식이 맞지 않습니다")
+    INVALID_PASSWORD(400,"패스워드 형식이 맞지 않습니다"),
+    USER_ALREADY_EXISTS(UserAlreadyExists.status, UserAlreadyExists.message)
     ;
 
 
@@ -34,4 +35,8 @@ public enum ErrorCodeConfig {
         public static final String message = "패스워드가 일치하지 않습니다";
     }
 
+    public static class UserAlreadyExists {
+        public static final int status = 407;
+        public static final String message = "이미 가입된 회원입니다";
+    }
 }
