@@ -27,7 +27,7 @@ public class ItemController {
     @PostMapping("/api/v1/user/item")
     public Item addItem(@RequestBody User user,@RequestBody Item item){
         User existingUser = userRepository.findById(user.getId())
-                                .orElseThrow(()->new UserNotFoundException("해당 유저가 없습니다"));
+                                .orElseThrow(()->new UserNotFoundException());
         return item;
     }
 

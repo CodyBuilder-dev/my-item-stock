@@ -1,66 +1,60 @@
 package com.example.myitemstock.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+import javax.persistence.*;
 
 
 @Entity
+@Builder
+@AllArgsConstructor
 public class Item {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String brand;
-    private Long price;
-    private String picture;
-    private Long amount;
-
-
-
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    private String name;
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    private String brand;
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    private Long price;
     public Long getPrice() {
         return price;
     }
-
     public void setPrice(Long price) {
         this.price = price;
     }
 
+    private String picture;
     public String getPicture() {
         return picture;
     }
-
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
+    private Long amount;
     public Long getAmount() {
         return amount;
     }
-
     public void setAmount(Long amount) {
         this.amount = amount;
     }
