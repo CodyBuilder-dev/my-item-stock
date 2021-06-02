@@ -1,7 +1,7 @@
-package com.example.myitemstock.service.impl;
+package com.example.myitemstock.domain.animallist.service.impl;
 
 import com.example.myitemstock.mapper.AnimalMapper;
-import com.example.myitemstock.service.AnimalService;
+import com.example.myitemstock.domain.animallist.service.AnimalService;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;

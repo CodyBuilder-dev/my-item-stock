@@ -1,12 +1,10 @@
-package com.example.myitemstock.controller;
+package com.example.myitemstock.domain.animallist.controller;
 
-import com.example.myitemstock.service.AnimalService;
-import com.example.myitemstock.service.impl.AnimalServiceImpl;
-import org.springframework.http.ResponseEntity;
+import com.example.myitemstock.domain.animallist.service.AnimalService;
+import com.example.myitemstock.domain.animallist.service.impl.AnimalServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;

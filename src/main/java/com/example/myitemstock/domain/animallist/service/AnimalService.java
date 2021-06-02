@@ -1,4 +1,4 @@
-package com.example.myitemstock.service;
+package com.example.myitemstock.domain.animallist.service;
 
 import java.util.HashMap;
 import java.util.List;

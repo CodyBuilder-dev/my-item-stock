@@ -19,6 +19,4 @@
     <insert id="deleteAnimal" parameterType="hashMap">
 
     </insert>
-
-
 </mapper>
