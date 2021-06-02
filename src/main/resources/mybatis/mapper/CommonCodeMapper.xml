@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="CommonCodeMapper">-->
+<mapper namespace="com.example.myitemstock.mapper.CommonCodeMapper">
+    <select id="selectAllMajorCommonCodes" parameterType="hashMap" resultType="hashMap">
+        SELECT *
+        FROM major_code
+    </select>
+
+    <insert id="insertAnimal" parameterType="hashMap">
+
+    </insert>
+
+    <insert id="updateAnimal" parameterType="hashMap">
+
+    </insert>
+
+    <insert id="deleteAnimal" parameterType="hashMap">
+
+    </insert>
+</mapper>
