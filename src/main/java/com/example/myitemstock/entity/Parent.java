@@ -11,6 +11,6 @@ public class Parent {
     @Id @GeneratedValue
     private long id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "parent")
     private List<Child> children;
 }

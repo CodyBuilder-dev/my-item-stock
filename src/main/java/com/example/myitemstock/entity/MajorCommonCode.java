@@ -1,5 +1,6 @@
 package com.example.myitemstock.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -13,7 +14,7 @@ public class MajorCommonCode extends CommonCode {
         this.middleCommonCodeList = new ArrayList<>();
     }
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name="MAJOR_ID",nullable = false)
     List<MiddleCommonCode> middleCommonCodeList;
 

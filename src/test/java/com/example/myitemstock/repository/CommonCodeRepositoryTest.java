@@ -13,6 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 class CommonCodeRepositoryTest {
     @Autowired CommonCodeRepository commonCodeRepository;
+    @Autowired MiddleCodeRepository middleCodeRepository;
 
     //todo: 단순 저장 테스트
     @Test
@@ -69,17 +70,17 @@ class CommonCodeRepositoryTest {
 
     //todo: 상위 없는 하위 저장 테스트
     @Test
-    void saveWithoutUpper() {
-//        Assertions.assertThrows(Exception.class, () -> {
+    void saveWithoutUpperCategory() {
+        Assertions.assertThrows(Exception.class, () -> {
             MiddleCommonCode middleCommonCode = new MiddleCommonCode();
             middleCommonCode.setCategoryCode("MID0001");
             middleCommonCode.setCategoryName("중분류1");
             commonCodeRepository.save(middleCommonCode);
-//        });
+        });
     }
-    //todo: 하위 있는 상위 삭제 테스트
-    @Test
-    void deleteWithLower() {
+    //CasCade설정 없이 하위 있는 상위 삭제 테스트
+//    @Test
+    void deleteWithLowerCategoryNoCascade() {
         // 대분류 저장
         MajorCommonCode majorCommonCode = new MajorCommonCode();
         majorCommonCode.setCategoryCode("MAJ0001");
@@ -95,6 +96,36 @@ class CommonCodeRepositoryTest {
 
         commonCodeRepository.save(middleCommonCode);
 
+        // 소분류 저장
+        MinorCommonCode minorCommonCode = new MinorCommonCode();
+        minorCommonCode.setCategoryCode("MIN0001");
+        minorCommonCode.setCategoryName("소분류1");
+        middleCommonCode.getMinorCommonCodeList().add(minorCommonCode);
+
+        commonCodeRepository.save(minorCommonCode);
+
+        // delete 후 flush 발생시 예외가 나야 정상
+        commonCodeRepository.delete(middleCommonCode);
+        Assertions.assertThrows(Exception.class,() -> {
+            commonCodeRepository.flush();
+        });
+    }
+    @Test
+    void deleteWithLowerCategoryCascade() {
+        // 대분류 저장
+        MajorCommonCode majorCommonCode = new MajorCommonCode();
+        majorCommonCode.setCategoryCode("MAJ0001");
+        majorCommonCode.setCategoryName("대분류1");
+
+        commonCodeRepository.save(majorCommonCode);
+
+        // 중분류 저장
+        MiddleCommonCode middleCommonCode = new MiddleCommonCode();
+        middleCommonCode.setCategoryCode("MID0001");
+        middleCommonCode.setCategoryName("중분류1");
+        majorCommonCode.getMiddleCommonCodeList().add(middleCommonCode);
+
+        commonCodeRepository.save(middleCommonCode);
 
         // 소분류 저장
         MinorCommonCode minorCommonCode = new MinorCommonCode();
@@ -104,9 +135,10 @@ class CommonCodeRepositoryTest {
 
         commonCodeRepository.save(minorCommonCode);
 
+        // delete 후 flush 발생시 예외가 안 나고, minor도 null 이어야 정상
         commonCodeRepository.delete(middleCommonCode);
+        commonCodeRepository.flush();
 
-        MinorCommonCode savedMinorCode = commonCodeRepository.findMinorByCategoryCode("MIN0001");
-        Assertions.assertNull(savedMinorCode);
+        Assertions.assertNull(commonCodeRepository.findMinorByCategoryCode("MIN0001"));
     }
 }

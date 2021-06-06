@@ -8,6 +8,7 @@ import javax.persistence.*;
 public abstract class CommonCode {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    public int getId() { return id; }
 
     @Column(nullable = false) String categoryCode;
     public String getCategoryCode() {
