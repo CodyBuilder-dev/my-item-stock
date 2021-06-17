@@ -5,6 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.persistence.ElementCollection;
+
 @RestControllerAdvice
 public class LoginExceptionHandler {
 
@@ -15,6 +17,16 @@ public class LoginExceptionHandler {
 
     @ExceptionHandler(WrongPasswordException.class)
     public ResponseEntity wrongPasswordException(WrongPasswordException e) {
+        return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
+    }
+
+    @ExceptionHandler(UserAlreadyExistsException.class)
+    public ResponseEntity userAlreadyExistsException(UserAlreadyExistsException e) {
+        return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity userNotFoundException(UserNotFoundException e){
         return new ResponseEntity(e.getMessage(), HttpStatus.valueOf(e.getStatus()));
     }
 }

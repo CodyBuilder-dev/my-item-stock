@@ -1,13 +1,12 @@
 package com.example.myitemstock.domain.login.service.impl;
 
-import com.example.myitemstock.domain.login.exception.InvalidPasswordException;
 import com.example.myitemstock.domain.login.exception.WrongPasswordException;
 import com.example.myitemstock.domain.login.model.LoginModel;
 import com.example.myitemstock.domain.login.model.SignupModel;
 import com.example.myitemstock.entity.Password;
 import com.example.myitemstock.entity.User;
-import com.example.myitemstock.exception.UserAlreadyExistsException;
-import com.example.myitemstock.exception.UserNotFoundException;
+import com.example.myitemstock.domain.login.exception.UserAlreadyExistsException;
+import com.example.myitemstock.domain.login.exception.UserNotFoundException;
 import com.example.myitemstock.repository.PasswordRepository;
 import com.example.myitemstock.repository.UserRepository;
 import com.example.myitemstock.domain.login.service.LoginService;
@@ -50,10 +49,13 @@ public class LoginServiceImpl implements LoginService {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = bCryptPasswordEncoder.encode(signupModel.getPassword());
         Password password = new Password(encodedPassword);
-
         passwordRepository.save(password);
 
         User user = new User();
+//        Phone phone = new Phone("010-1111-2222",new PhoneServiceProvider("케이티","KT"));
+//        user.setPhone(phone);
+
+
         user.setEmail(signupModel.getEmail());
         user.setNickname(signupModel.getNickname());
         user.setPassword(password);

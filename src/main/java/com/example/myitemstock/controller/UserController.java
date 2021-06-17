@@ -32,23 +32,4 @@ public class UserController {
     public List<User> getUsers() {
         return userService.getUsers();
     }
-
-    /**
-     * 요구 : 특정 유저의 모든 아이템을 가져와서 보여주세요
-     */
-    @ApiOperation(value="유저 아이템 조회")
-    @GetMapping("/api/v1/user/items")
-    public Set<Item> getUserItems(@ApiParam(value="유저") @RequestBody User user){
-        return  userService.getUserItems(user);
-    }
-
-    /**
-     * 요구 : 정보를 받아 유저를 등록해주세요
-     */
-    @ApiOperation(value = "유저 등록")
-    @PostMapping("/api/v1/user")
-    public User addUser(@ApiParam(value="유저") @RequestBody User user) {
-        userService.addUser(user);
-        return user;
-    }
 }

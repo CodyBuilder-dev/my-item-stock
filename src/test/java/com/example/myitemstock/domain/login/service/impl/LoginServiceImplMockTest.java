@@ -1,13 +1,10 @@
 package com.example.myitemstock.domain.login.service.impl;
 
-import com.example.myitemstock.domain.login.exception.InvalidPasswordException;
 import com.example.myitemstock.domain.login.exception.WrongPasswordException;
 import com.example.myitemstock.domain.login.model.LoginModel;
-import com.example.myitemstock.domain.login.model.SignupModel;
 import com.example.myitemstock.entity.Password;
 import com.example.myitemstock.entity.User;
-import com.example.myitemstock.exception.UserNotFoundException;
-import com.example.myitemstock.repository.PasswordRepository;
+import com.example.myitemstock.domain.login.exception.UserNotFoundException;
 import com.example.myitemstock.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,13 +12,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

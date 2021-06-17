@@ -3,16 +3,12 @@ package com.example.myitemstock.domain.login.service.impl;
 
 import com.example.myitemstock.domain.login.model.LoginModel;
 import com.example.myitemstock.domain.login.model.SignupModel;
-import com.example.myitemstock.domain.login.service.LoginService;
-import com.example.myitemstock.entity.User;
-import com.example.myitemstock.exception.UserAlreadyExistsException;
+import com.example.myitemstock.domain.login.exception.UserAlreadyExistsException;
 import com.example.myitemstock.repository.PasswordRepository;
 import com.example.myitemstock.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 

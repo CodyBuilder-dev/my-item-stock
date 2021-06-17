@@ -7,25 +7,27 @@ import java.util.Set;
 
 @Entity
 public class User {
+    public User() {}
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
 
     private String email;
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setEmail(String email) { this.email = email; }
 
+
+    @Embedded private Phone phone;
+    public Phone getPhone() { return phone; }
+    public void setPhone(Phone phone) { this.phone = phone; }
 
     private String nickname;
     public String getNickname() {
@@ -70,3 +72,4 @@ public class User {
     }
 
 }
+
